@@ -1,14 +1,14 @@
-const express = require('express');
-const cors = require('cors');
-const knex = require('knex');
-const bcrypt = require('bcrypt-nodejs');
+import express from 'express';
+import cors from 'cors';
+import knex from 'knex';
+import bcrypt from 'bcrypt-nodejs';
 
-const register = require('./controllers/register');
-const signin = require('./controllers/signin');
-const profile = require('./controllers/profile');
-const image = require('./controllers/image')
+import handleRegister from './controllers/register.js';
+import handleSignIn from './controllers/signin.js';
+import handleProfileGet from './controllers/profile.js';
+import handleImage from './controllers/image.js';
 // Clarifai back-end
-const detect = require('./controllers/detect');
+import handleImageUrl from './controllers/detect.js';
 
 
 const db = knex({
@@ -36,20 +36,22 @@ app.get('/', (req, res) => {
     res.json('all good until now');
 })
 
-app.post('/signin', (req, res) => { signin.handleSignIn(req, res, db, bcrypt) })
+app.post('/signin', (req, res) => { handleSignIn(req, res, db, bcrypt) })
 
-app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
+app.post('/register', (req, res) => { handleRegister(req, res, db, bcrypt) })
 
-app.get('/profile/:id', (req, res) => { profile.hadleProfileGet(req, res, db, bcrypt) })
+app.get('/profile/:id', (req, res) => { handleProfileGet(req, res, db, bcrypt) })
 
-app.put('/imageUpload', (req, res) => { image.handleImage(req, res, db) })
+app.put('/imageUpload', (req, res) => { handleImage(req, res, db) })
 
 // Clarifai back-end
 // endpoint to receive image url and return response from clarifai
 
-app.post('/detect', (req, res) => { detect.handleImageUrl(req, res) })
+app.post('/detect', (req, res) => { handleImageUrl(req, res) })
 
 // app.post('/imageUrl', (req, res) => { image.handleApiCall(req, res) })
 
-app.listen(process.env.PORT || 3001);
+app.listen(process.env.PORT || 3001, () => {
+    console.log(`App is running on port ${process.env.PORT}`);
+});
 

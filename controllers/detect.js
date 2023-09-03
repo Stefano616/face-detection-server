@@ -68,6 +68,4 @@ const handleImageUrl = (req, res) => {
 
 }
 
-module.exports = {
-    handleImageUrl
-}
+export default handleImageUrl;
