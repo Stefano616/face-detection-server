@@ -1,5 +1,5 @@
 
-import { ClarifaiStub, grpc } from ("clarifai-nodejs-grpc");
+import { ClarifaiStub, grpc } from "clarifai-nodejs-grpc";
 
 const handleImageUrl = (req, res) => {
     const { imageURL } = req.body;
