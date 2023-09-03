@@ -1,4 +1,5 @@
 
+import { ClarifaiStub, grpc } from ("clarifai-nodejs-grpc");
 
 const handleImageUrl = (req, res) => {
     const { imageURL } = req.body;
@@ -25,7 +26,7 @@ const handleImageUrl = (req, res) => {
     // YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
     ///////////////////////////////////////////////////////////////////////////////////
 
-    const { ClarifaiStub, grpc } = require("clarifai-nodejs-grpc");
+    // const { ClarifaiStub, grpc } = require("clarifai-nodejs-grpc");
 
     const stub = ClarifaiStub.grpc();
 
