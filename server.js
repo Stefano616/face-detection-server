@@ -51,5 +51,5 @@ app.post('/detect', (req, res) => { detect.handleImageUrl(req, res) })
 
 // app.post('/imageUrl', (req, res) => { image.handleApiCall(req, res) })
 
-app.listen(3001);
+app.listen(process.env.PORT || 3001);
 
