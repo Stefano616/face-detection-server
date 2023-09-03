@@ -16,9 +16,9 @@ const db = knex({
     connection: {
         host: process.env.DATABASE_HOST,
         port: 5432,
-        user: rocess.env.DATABASE_USER,
-        password: rocess.env.DATABASE_PW,
-        database: rocess.env.DATABASE_DB
+        user: process.env.DATABASE_USER,
+        password: process.env.DATABASE_PW,
+        database: process.env.DATABASE_DB
     }
 });
 
