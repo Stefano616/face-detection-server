@@ -14,11 +14,11 @@ import handleImageUrl from './controllers/detect.js';
 const db = knex({
     client: 'pg',
     connection: {
-        host: '127.0.0.1',
+        host: process.env.DATABASE_HOST,
         port: 5432,
-        user: 'postgres',
-        password: 'Postgres616!',
-        database: 'detectionapp'
+        user: rocess.env.DATABASE_USER,
+        password: rocess.env.DATABASE_PW,
+        database: rocess.env.DATABASE_DB
     }
 });
 
